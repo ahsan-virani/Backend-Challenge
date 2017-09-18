@@ -1,0 +1,20 @@
+version: "2"
+services:
+  web:
+    build: .
+    volumes:
+      - ./:/jodel-backend-virani/app
+    ports:
+      - "3000:3002"
+    links:
+      - mongo
+      - redis
+    environment:
+      NODE_ENV: production
+      MONGO_URL: mongodb://mongo/virani-jodel-dev
+      MONGO_HOST: 27017
+      REDIS_URL: redis://redis:6379
+  mongo:
+    image:  mongo:latest
+  redis:
+    image: redis:latest
