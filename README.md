@@ -18,3 +18,16 @@ npm run test
 npm run db:seed // if you wish to seed
 npm start
 ```
+#### routes:
+
+go to `localhost:3000/api/test` to see service is running
+
+GET `/api/orders/:order_id`
+
+PUT `/api/orders/:order_id`
+
+DELETE `/api/orders/:order_id`
+
+GET `/api/orders`
+
+POST `/api/orders`
