@@ -4,13 +4,17 @@
 ## Instructions
 
 
+#### Docker
+
 ```shell
-npm install
-npm run test
 docker-compose up
 ```
 
-To run locally, make sure Mongo and redis instances are up.
+This will first run the tests, then start the server.
+
+#### Dev and Test
+
+To run server locally, and for test, make sure Mongo and redis instances are up.
 
 ```shell
 npm install

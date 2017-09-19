@@ -14,6 +14,16 @@ const paths = {
   tests: './server/tests/*.js'
 };
 
+gulp.task('test', function () {
+  return gulp.src(['server/tests/*.js'], { read: false })
+    .pipe(plugins.mocha({
+      reporter: 'spec',
+      ui: 'bdd',
+      colors: true,
+      compilers: 'js:babel-core/register'
+    }));
+});
+
 // Clean up dist and coverage directory
 gulp.task('clean', () =>
   del.sync(['dist/**', 'dist/.*', 'coverage/**', '!dist', '!coverage'])
@@ -55,10 +65,10 @@ gulp.task('nodemon', ['copy', 'babel'], () =>
 gulp.task('serve', () => runSequence('nodemon'));
 
 // gulp serve for prod
-gulp.task('prod', () => runSequence('seed', 'nodemon'));
+gulp.task('prod', () => runSequence('test', 'seed', 'nodemon'));
 
 gulp.task('seed', ['clean', 'copy', 'babel'], (callback) => {
-  exec('node dist/seed.js', function(err, stdout, stderr) {
+  exec('node dist/seed.js', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     callback(err);

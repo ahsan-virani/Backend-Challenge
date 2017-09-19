@@ -10,6 +10,8 @@ WORKDIR $HOME/app
 
 RUN npm install
 
+RUN npm i gulp
+
 EXPOSE 3002
 
 CMD [ "npm", "run", "deploy"]
