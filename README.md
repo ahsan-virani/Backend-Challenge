@@ -32,6 +32,6 @@ PUT `/api/orders/:order_id`
 
 DELETE `/api/orders/:order_id`
 
-GET `/api/orders`
+GET `/api/orders?page=1&limit=22&max_type=10&min_type=9`
 
 POST `/api/orders`
