@@ -7,6 +7,7 @@
 #### Docker
 
 ```shell
+npm install
 docker-compose up
 ```
 
